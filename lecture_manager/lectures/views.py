@@ -30,10 +30,10 @@ def lecture_post(request):
             name_lecture = data["name_lecture"]
         )
 
+    return JsonResponse({"success": True})
+
 def lecture_form(request):
     return render(request, "lectures/form.html")
-
-
 
 
 def datetime_converter(o):
