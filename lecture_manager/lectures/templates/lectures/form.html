@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ad a lecture</title>
+</head>
+<body>
+{% csrf_token %}
+
+<h1>Ad a lecture</h1>
+<br><br>
+<input type = "text" id ="lecture_name" placeholder = "Enter lecture name">
+<br><br>
+<input type = "datetime-local" id = "Start_date" placeholder = "Enter start date">
+<br><br>
+<input type = "datetime-local" id = "End_date" placeholder = "Enter end date">
+<br><br>
+<button onclick= "SubmitLecture()">Submit</button>
+
+<script>
+    function SubmitLecture() {
+        const name = document.getElementById('lecture_name').value;
+        const start = document.getElementById('Start_date').value;
+        const end = document.getElementById('End_date').value;
+
+        fetch("/api/lectures/add-form", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": getCookie("csrftoken")
+            },
+            body: JSON.stringify({
+                name_lecture: name,
+                start_time: start,
+                end_time: end,
+            })
+        }) .then(response => response.json())
+        .then(data => {
+            console.log("Server response:", data);
+            alert("Lecture added!");
+        });
+    }
+
+    function getCookie(name) {
+          let cookieValue = null;
+          if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === name + "=") {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+              }
+            }
+          }
+          return cookieValue;
+        }
+
+</script>
+</body>
+</html>

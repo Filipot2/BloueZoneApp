@@ -37,8 +37,6 @@ def fecth_events():
 
 
 
-print(fecth_events())
-
 
 
 
