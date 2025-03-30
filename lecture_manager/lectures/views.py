@@ -11,11 +11,23 @@ def lecture_list(request):
         data.append({
             "id": lecture.id,
             "name_lecture": lecture.name_lecture,
-            "start_time": lecture.start_time,
-            "end_time": lecture.end_time,
+            "start_time": lecture.start_time.isoformat(),
+            "end_time": lecture.end_time.isoformat(),
         })
 
     return JsonResponse(data, safe=False)
+
+def today_lecture_list(request):
+
+    data = []
+    for lecture in Lecture.objects.filter(start_time__date = datetime.now().date()):
+        data.append({
+            "id": lecture.id,
+            "name_lecture": lecture.name_lecture,
+            "start_time": lecture.start_time.isoformat(),
+            "end_time": lecture.end_time.isoformat(),
+        })
+    return JsonResponse({"data": data}, safe=False)
 
 
 def lecture_post(request):
@@ -34,6 +46,12 @@ def lecture_post(request):
 
 def lecture_form(request):
     return render(request, "lectures/form.html")
+
+def lecture_main(request):
+    return render(request, "lectures/main.html")
+
+def lecture_callendar(request):
+    return render(request, "lectures/callendar.html")
 
 
 def datetime_converter(o):

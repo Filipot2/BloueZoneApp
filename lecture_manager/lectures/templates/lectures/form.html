@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <title>Ad a lecture</title>
 </head>
 <body>
-{% csrf_token %}
+
 
 <h1>Ad a lecture</h1>
 <br><br>
@@ -17,6 +17,9 @@
 <input type = "datetime-local" id = "End_date" placeholder = "Enter end date">
 <br><br>
 <button onclick= "SubmitLecture()">Submit</button>
+<br><br>
+<button onclick = "MoveToMain()">Back</button>
+
 
 <script>
     function SubmitLecture() {
@@ -41,6 +44,14 @@
             alert("Lecture added!");
         });
     }
+
+    function MoveToMain() {
+        window.location.href = "main"
+    }
+
+
+
+
 
     function getCookie(name) {
           let cookieValue = null;
