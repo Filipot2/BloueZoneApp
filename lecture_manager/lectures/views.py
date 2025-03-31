@@ -50,7 +50,7 @@ def lecture_form(request):
 def lecture_main(request):
     return render(request, "lectures/main.html")
 
-def lecture_callendar(request):
+def lecture_calendar(request):
     return render(request, "lectures/callendar.html")
 
 

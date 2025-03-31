@@ -1,6 +1,8 @@
+from django.conf import settings
 from icalevents.icalevents import events
 import mysql.connector
 import variables
+import os
 
 #updates database if there are new events
 def update_database():
@@ -34,6 +36,9 @@ def fecth_events():
     x = cursor.fetchall()
     cnx.close()
     return x
+
+
+
 
 
 
