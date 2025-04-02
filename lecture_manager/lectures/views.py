@@ -1,8 +1,10 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import Lecture
 from datetime import datetime
+from utils.functions import update_database
+
 
 
 def lecture_list(request):
@@ -15,7 +17,7 @@ def lecture_list(request):
             "end_time": lecture.end_time.isoformat(),
         })
 
-    return JsonResponse(data, safe=False)
+    return JsonResponse({"data": data}, safe=False)
 
 def today_lecture_list(request):
 
@@ -53,6 +55,9 @@ def lecture_main(request):
 def lecture_calendar(request):
     return render(request, "lectures/callendar.html")
 
+def update_calendar_fromlinked(request):
+    update_database()
+    return redirect('/api/lectures/callendar')
 
 def datetime_converter(o):
     if isinstance(o, str):

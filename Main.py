@@ -1,8 +1,5 @@
-from icalevents.icalevents import events
 import mysql.connector
-import variables
-import functions
-
+from lecture_manager.utils import functions, variables
 
 #Conection
 cnx = mysql.connector.connect(**variables.config_connect)

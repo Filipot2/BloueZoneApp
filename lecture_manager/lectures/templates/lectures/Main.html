@@ -1,6 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <style>
+        .hidden {display: none}
+        .visible {display: block}
+    </style>
+
+    <script src="{% static 'js/bundle.js' %}"></script>
     <meta charset="UTF-8">
     <title>Main site</title>
 </head>
@@ -10,6 +18,14 @@
 <button onclick="MoveToForm()">New event</button>
 <br><br>
 <button onclick="Show_today_events()">Show todays events</button>
+<br><br>
+<button id = "jokeButton">Joke</button>
+<button id="hiddJokeButton" >Hide joke</button>
+<br><br>
+<div id="jokeContainer" class="hidden">
+    <p id="jokeSetup"></p>
+    <p id="jokePunchline"></p>
+</div>
 
 
 <script>
