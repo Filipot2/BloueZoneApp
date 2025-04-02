@@ -4,7 +4,8 @@ import timeGridPlugin from  "@fullcalendar/timegrid"
 import tippy from "tippy.js"
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/themes/light.css'
-
+import Swal from "sweetalert2"
+import {mapHash} from "@fullcalendar/core/internal";
 
 
 // javascript for the calendar includes fetching events
@@ -26,12 +27,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
             timeZone: 'UTC',
 
-            eventClick: function (info){
+            eventClick: async function (info){
 
-                alert(info.event.title)
+                console.log(select_blue_zone());
+                const {value: blueZoneType} = await Swal.fire({
+                    title: 'Input needed stuf',
+                    inputLabel: 'Which bluezone will u be parking in',
+                    input: 'select',
+                    inputOptions: select_blue_zone(),
+                    inputPlaceholder: 'Choose...',
+                    showCancelButton: true
+                });
 
-            },
+                if (blueZoneType){
+                    console.log(blueZoneType)
+                }
 
+                },
             eventMouseEnter: function (info){
 
                 if (tooltipMap.has('{info.el}')){
@@ -72,24 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
     calendar.render();
 });
 
-document.addEventListener("DOMContentLoaded", function (){
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -102,6 +96,30 @@ document.addEventListener("DOMContentLoaded", function (){
 document.addEventListener("DOMContentLoaded", function (){
     document.getElementById('hiddJokeButton').addEventListener('click', hidd_joke)
 });
+
+async function select_blue_zone(){
+
+    const better_data = Map;
+    const response = await fetch('http://127.0.0.1:8000/api/lectures/callendar/bluezone');
+    const data = await response.json();
+
+    data.data.forEach(item => {
+        const key = Object.keys(item);
+        better_data[key] = item[key];
+    });
+    return better_data;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 function hidd_joke(){

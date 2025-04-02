@@ -1,6 +1,8 @@
 import json
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+
+from .models import BlueZone
 from .models import Lecture
 from datetime import datetime
 from utils.functions import update_database
@@ -45,6 +47,16 @@ def lecture_post(request):
         )
 
     return JsonResponse({"success": True})
+
+def blue_zone_list(request):
+    data = []
+    for zone in BlueZone.objects.all():
+        data.append({zone.value : zone.name})
+
+    return JsonResponse({'data':data}, safe=False)
+
+
+
 
 def lecture_form(request):
     return render(request, "lectures/form.html")

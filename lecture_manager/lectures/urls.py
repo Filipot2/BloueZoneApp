@@ -9,4 +9,5 @@ urlpatterns = [
     path('api/lectures/callendar', views.lecture_calendar, name='lecture-callendar'),
     path('api/lectures/fetch/today', views.today_lecture_list, name='lecture-data'),
     path('api/lectures/callendar/update/fromlinked', views.update_calendar_fromlinked, name='update-calendar-fromlinked'),
+    path('api/lectures/callendar/bluezone', views.blue_zone_list, name='get-bluezone-list')
 ]

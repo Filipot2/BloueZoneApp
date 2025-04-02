@@ -25,3 +25,4 @@ class Event(models.Model):
 class BlueZone(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
+    value= models.CharField(max_length=255)
