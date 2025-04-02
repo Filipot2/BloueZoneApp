@@ -72,6 +72,26 @@ document.addEventListener("DOMContentLoaded", function () {
     calendar.render();
 });
 
+document.addEventListener("DOMContentLoaded", function (){
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

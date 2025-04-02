@@ -14,4 +14,14 @@ class Lecture(models.Model):
         return f"{self.name_lecture} ({self.start_time} - {self.end_time})"
 
 
+class Event(models.Model):
+    id = models.OneToOneField('Lecture', on_delete=models.CASCADE, primary_key=True)
+    name = models.CharField(max_length=255)
+    blue_zone_code = models.CharField(max_length=255)
+    event_start = models.DateTimeField()
+    event_end = models.DateTimeField()
 
+
+class BlueZone(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
