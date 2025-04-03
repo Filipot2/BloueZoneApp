@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f771a1f-bf27-4a77-8e20-ca8c71566306" name="Changes" comment="meh">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lecture_manager/lectures/templates/lectures/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/lecture_manager/lectures/templates/lectures/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="4f771a1f-bf27-4a77-8e20-ca8c71566306" name="Changes" comment="meh" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +159,7 @@
       <workItem from="1743615835339" duration="14000" />
       <workItem from="1743617428983" duration="638000" />
       <workItem from="1743626271042" duration="623000" />
-      <workItem from="1743674322881" duration="4133000" />
+      <workItem from="1743674322881" duration="4433000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -229,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743612871080</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="meh">
+      <option name="closed" value="true" />
+      <created>1743692946621</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743692946621</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
