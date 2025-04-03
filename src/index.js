@@ -5,7 +5,16 @@ import tippy from "tippy.js"
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/themes/light.css'
 import Swal from "sweetalert2"
-import {mapHash} from "@fullcalendar/core/internal";
+import puppeteer from "puppeteer"
+
+
+// Event listeners for buttons
+document.addEventListener("DOMContentLoaded", function (){
+    document.getElementById('jokeButton').addEventListener('click', get_joke),
+    document.getElementById('hiddJokeButton').addEventListener('click', hidd_joke)
+    document.getElementById('test').addEventListener('click', testing_bluezone_submit)
+});
+
 
 
 // javascript for the calendar includes fetching events
@@ -89,14 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener("DOMContentLoaded", function (){
-    document.getElementById('jokeButton').addEventListener('click', get_joke)
-});
 
-document.addEventListener("DOMContentLoaded", function (){
-    document.getElementById('hiddJokeButton').addEventListener('click', hidd_joke)
-});
 
+//fetches the bluezone database in corect form
 async function select_blue_zone(){
 
     const better_data = Map;
@@ -109,15 +113,6 @@ async function select_blue_zone(){
     });
     return better_data;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -159,4 +154,21 @@ catch (error){
         console.error('Error fetching joke:', error);
 }
 }
+
+
+
+async function testing_bluezone_submit(){
+
+    const browser = await puppeteer.connect({
+        browserWSEndpoint : 'http://127.0.0.1:8000/api/lectures/main'
+    })
+    const page = await browser.newPage()
+
+    await page.select(name = 'ZoneID', 'C')
+
+
+    await browser.disconnect();
+
+}
+
 
